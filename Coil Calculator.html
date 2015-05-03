@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<meta name="description" content="Free coil calculator for any material">
+	<meta name="keywords" content="Coil, Calculator, Material, JavaScript, HTML, CSS">
+	<meta name="author" content="Redge Shepherd">
+	<meta name="owner" content="Versalytics.com">
+	<meta name="created" content="April 27, 2015">
+	<meta name="version" content="1.0">
+	<!-- <meta http-equiv="refresh" content="30"> -->
+	<!-- Refresh document every 30 seconds -->
+
+	<title>Coil Calculator</title>
+	<base href="./" target="_blank">
+	
+	<!-- <version>Coil Calculator Version 2.00 - April 18, 2015</version> -->
+	<!-- <author>Redge Shepherd</author> -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!-- Create a Constructor Function using JavaScript -->
+	
+	<link rel="stylesheet" type="text/css" href="Coil Calculator.css">
+	
+	<!--
+	
+	non-breaking space &nbsp
+	<style>
+		body {background-color:lightgray}
+		h1	 {color:blue}
+		p	 {color:green}
+	</style>
+	-->
+	
+	<script>
+
+		// Internet Explorer does not recognize use of "const"  
+		const  Logo = "Versalytics"
+		
+		/*
+		There are two ways to create arrays - either one works
+		We just wanted a base to demonstrate both in practice
+		*/
+		
+		var Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Nov", "Dec"];
+		var WeekDays = new Array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
+		var now = new Date();
+		
+		var FullYear = now.getFullYear();	// yyyy
+		var Month = now.getMonth();			// 0-31
+		var WeekDay = now.getDay();			// 0-6
+		
+		var hrs = now.getHours();			// 0-23
+		var min = now.getMinutes();			// 0-59
+		var sec = now.getSeconds();			// 0-59
+		// document.write(hrs + ":" + min + ":" + sec);
+		// document.write(Logo + "<br/>");
+
+	</script>
+</head>
+<body>
+	<!-- The <center> tag is not valid in HTML5 -->
+	<img class="logo" src="Versalytics (40x40).jpg" alt="Versalytics">
+	<h1 class="pagetitle">Coil Calculator &copy; 2015</h1>
+	<!--
+	Key Inputs listed first, followed by Results fields.
+	For forms, if the action attribute is omitted, the action is set to the current page.
+	The method attribute specifies the HTTP method (GET or POST) to be used when submitting forms.
+	GET exposes information and the form data is visible in the page address
+	POST is used when updating data or where sensitive information is involved.  Data is NOT exposed to the page address.
+	Name Attribute:  each input field must have a name attribute.
+	--> 
+	
+	<!-- <a href="#" onclick="window.print(); return false;">Print</a> -->
+	
+	<!--
+	To control what gets printed we can use a little CSS styling
+	<link rel="stylesheet" href="print.css"
+	type="text/css" media="print"/>
+	
+	The print.css file should contain the following lines:
+	body {visibility:hidden}
+	.print{visibility:visible}
+	
+	Then assign class="print" to whatever parts of the web page we want to print.
+	Anything not assigned to the class will not print.
+	-->
+
+	<p class="intro" title="Coil Calculator - Developed by Versalytics.com">
+	
+	The density of the material is set when a material is selected.
+	You can enter your own density to override this value.
+	<!-- Density = mass / units<sup>3</sup>, example <samp>lbs/in<sup>3</sup>
+	or grams/mm<sup>3<sup>.</samp> -->
+	<br/>
+	<!--
+	<br/>
+	Use the <kbd>TAB Key</kbd> or <kbd>Mouse</kbd> to move to the next field.<br/>
+	<br/>
+	-->
+	
+	<!-- <var>variable</var>
+		<samp> is the Sample Output Tag </samp>
+		<code> is used for inputting code</code>
+	
+	<input id="printpage" type="button" value="Print this page" onclick="window.print(); return false;"/>
+	-->
+	</p>
+
+	<form action ="" method ="post" name="CoilForm" id ="CoilForm" autocomplete="off">
+		<fieldset>
+		<legend><h2><em><strong>Coil Data</strong></em></h2></legend>
+		
+		<div><label for="MaterialType">Material Grade:..</label>
+			<select id="MaterialType" onchange="MaterialChange()" autofocus>
+				<option value="0.283" selected>1008/1010 Steel</option>
+				<option value="0.098">Aluminum</option>
+				<option value="0.283">SAE J2340 HR 340 XF</option>
+				<option value="0.290">Stainless Steel</option>
+				<option value="0.298">Beryllium Copper Cb 101</option>
+				<option value="0.323">Copper Alloy #C81100 C#86500</option>
+			</select>
+		</div>
+		
+		<!-- Field width for input fields is 20 characters -->
+		
+		<div><label for="Coil_Count">Number of Coils:......</label><input type="text" name="Coil_Count" id="Coil_Count" value="1" required>
+		<div><label for="Coil_OD">Coil OD:..............</label><input type="text" name="Coil_OD" id="Coil_OD" value="55" required></div>
+		<div><label for="Coil_ID">Coil ID:..............</label><input type="text" name="Coil_ID" id="Coil_ID" value="20" required></div>
+		<div><label for="Coil_Width">Coil Width:...........</label><input type="text" name="Coil_Width" id="Coil_Width" value="1.600" required></div>
+		<div><label for="Thickness">Thickness:............</label><input type="text" name="Thickness" id="Thickness" value="0.118" required></div>
+		<div><label for="Density">Density:..............</label><input type="text" name="Density" id="Density" value="0.283" required></div>
+		</fieldset>
+	
+		<fieldset>
+		<legend><h2><em><strong>Tooling Data</strong></em></h2></legend>
+		<div><label for="Progression">Progression:..........</label><input type="text" name="Progression" id="Progression" value="1.540" required></div>
+
+		<div><label for="Makes">Makes:................</label><input type="text" name="Makes" id="Makes" value="1" required></div>
+		<div><label for="StripLength">Strip Length:.........</label><input type="text" name="StripLength" id="StripLength" value="48.0" required></div>
+		<div><label for="StripCount">Strip Count:..........</label><input type="text" name="StripCount" id="StripCount" value="1.0" required></div>
+		
+		<div><label for="Part_Quantity">Parts Required:.......</label><input type="number" name="Part_Quantity" id="Part_Quantity" value="150000" min="1" required></div>
+		<div><label for="CoilPercent">Yield %:..............</label><input type="text" name="CoilPercent" id="CoilPercent" value="100.00"></div>
+		<div><label for="KnownWeight">Known Weight:.........</label><input type="text" name="KnownWeight" id="KnownWeight" value="0.000"></div>
+		<hr />
+		<div><label for="WrapCheck">Include Wraps?........ </label><input type="checkbox" name="WrapCheck" id="WrapCheck" checked>Yes</div>
+		<div><label for="StripCheck">Include Strips?....... </label><input type="checkbox" name="StripCheck" id="StripCheck" checked>Yes</div>
+		
+		<!-- 
+		<div><label for="YesNo">Yes or No:  </label><input type="radio" name="YesNo" value="yes" checked>Yes
+		<input type="radio" name="YesNo" value="no">No</div>
+		-->
+		<hr/>
+		
+		<div>
+			<input type="submit" value="Calculate" id="submit">
+			<button type="button" id="aboutVersalytics" onclick="alert('Coil Calculator\nVersalytics.com\n2015')">About!</button>
+			<!-- <input type="reset" value="Reset" id="reset"> -->
+			<input id="printpage" type="button" value="Print this page" onclick="window.print(); return false;"/></div>
+		</fieldset>		
+	</form>
+	
+	<form action ="" method ="post" name="CoilForm" id ="CoilResults">
+		<fieldset>
+		<legend><h2><em><strong>Results</strong></em></h2></legend>
+		<div><label for="CoilWeight">Coil Weight:..........</label><input type="text" name="CoilWeight" id="CoilWeight" size="15" value="0.00"></div>
+		<div><label for="BlankWeight">Blank Weight:.........</label><input type="text" name="BlankWeight" id="BlankWeight" size="15" value="0.00"></div>
+		<div><label for="PartWeight">Part Weight:..........</label><input type="text" name="PartWeight" id="PartWeight" size="15" value="0.00"</div>
+		<div><label for="StripWeight">Strip Weight:.........</label><input type="text" name="StripWeight" id="StripWeight" size="15" value="0.00"></div>
+		
+		<div><label for="PartYield">Pieces:...............</label><input type="text" name="PartYield" id="PartYield" size="15" value="0.00"></div>
+		<div><label for="CoilLength">Coil Length:..........</label><input type="text" name="CoilLength" id="CoilLength" size="15" value="0.00"></div>
+		<div><label for="CoilVolume">Coils Required:.......</label><input type="text" name="CoilVolume" id="CoilVolume" size="15" value="1.00"></div>
+		
+		<!-- <hr> -->
+		</fieldset>
+		<fieldset>
+		<legend><h2><em><strong>Total Weight / Pieces</strong></em></h2></legend>
+		<div><label for="TotalWeight">Total Coil Weight:....  </label><input type="text" name="TotalWeight" id="TotalWeight" size="15" value="0.00"></div>
+		<div><label for="TotalPieces">Total Pieces:.........  </label><input type="text" name="TotalPieces" id="TotalPieces" size="15" value="0.00"></div>
+		<div><label for="TotalLengthIN">Total Length (in):....  </label><input type="text" name="TotalLengthIN" id="TotalLengthIN" size="15" value="0.00"></div>
+		<div><label for="TotalLengthFT">Total Length (ft):....  </label><input type="text" name="TotalLengthFT" id="TotalLengthFT" size="15" value="0.00"></div>
+		<!-- Width is NOT supported in HTML5, use CSS instead !!!! -->
+		</fieldset>
+		
+		<fieldset>
+		<legend><h2><em><strong>Wraps</strong></em></h2></legend>
+		<div><label for="OuterWrap">Outer Wrap:...........</label><input type="text" name="OuterWrap" id="OuterWrap" size="15" value="0.00"></div>
+		<div><label for="InnerWrap">Inner Wrap:...........</label><input type="text" name="InnerWrap" id="InnerWrap" size="15" value="0.00"></div>
+		<div><label for="Pounds">Pounds Only:..........  </label><input type="text" name="Pounds" id="Pounds" size="15" value="0.00"></div>
+		<div><label for="Offal">Offal:................</label><input type="text" name="Offal" id="Offal" size="15" value="0.00"></div>
+		
+		<div><label for="WeightToParts">Known Weight to Parts:  </label><input type="text" name="WeightToParts" id="WeightToParts" size="15" value="0.00"></div>
+		<!--<br/>
+		<input type="button" value="Print this page" onclick="window.print(); return false;"/>
+		-->
+		</fieldset>		
+	</form>
+	
+	<script src="CoilWeight.js"></script>
+	<!--
+	Yield %
+		Most coils seldom yield a 100% conversion of material to parts.
+		This factor is completely arbitrary based on the users experience.
+		
+		Yield affects Pieces, Total Pieces, and coils required.
+		
+	Include Wraps?  Default = Yes
+		The implication is that the complete coil can be fed
+		through the tool - beginning to end.  This is not a
+		realistic expectation, so excluding the "coil ends" will
+		likely provide a more realistic part yield.
+	-->
+</body>
+</html>

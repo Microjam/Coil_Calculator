@@ -1,0 +1,137 @@
+/*
+	Author:		Redge Shepherd
+	Created:	27-Apr-2015
+	Version:	1.00
+	
+	CSS styles / formats the HTML code, providing much greater flexibility.
+	
+HSLA Colors
+HSLA color values are supported in IE9+, Firefox 3+, Chrome, Safari, and in Opera 10+.
+HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity of the object.
+
+An HSLA color value is specified with: hsla(hue, saturation, lightness, alpha), where the alpha parameter defines the opacity. The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).
+
+Example
+
+Define different HSL colors with opacity:
+
+#p1 {background-color: hsla(120, 100%, 50%, 0.3);}   green with opacity
+#p2 {background-color: hsla(120, 100%, 75%, 0.3);}   light green with opacity 
+#p3 {background-color: hsla(120, 100%, 25%, 0.3);}   dark green with opacity 
+#p4 {background-color: hsla(120, 60%, 70%, 0.3);}    pastel green with opacity
+
+
+ */
+
+body	{
+	background-color:lightyellow;
+}
+
+h1.pagetitle	{
+	color:blue;
+	/* background-color:lightyellow; */
+	text-align:center;
+}
+
+img.logo	{
+	float:left;
+	width:40px;
+	height:40px;
+	margin-left:10px;
+	/* background-color:lightyellow; */
+	
+}
+
+p.intro	{
+	color:blue;
+	/* background-color:lightyellow; */
+	border:0px solid black;
+	padding:10px;
+	margin:0px;
+}
+	
+p	{
+	color:black;
+	/* background-color:lightyellow; */
+	border:0px solid black;
+	padding:5px;
+	margin:1px;
+}
+
+select#MaterialType {
+	margin-left:10px;
+}
+
+input {
+	float:right;
+	font-family:courier;
+	margin-left:5px;
+	margin-bottom:2px;
+}
+
+label {
+	float:left;
+	font-family:courier;
+	font-size:17px;
+	margin-right:20px;
+	margin-bottom:3px;
+	background-color:lightyellow;
+	color:sienna;
+}	
+input#submit {
+	float:left;
+}
+	
+input#printpage{
+	float:right;
+}
+
+input#WrapCheck {
+	float:left;
+	margin-left:20px;
+}
+
+input#StripCheck {
+	float:left;
+	margin-left:20px;
+}
+	
+hr	{
+	margin-top:10px;
+	background-color:red;
+	height:1px;
+	width:100%;
+	border:0px;
+}
+
+form#CoilForm {
+	float:left;
+	width:436px;
+	/* background-color:lightyellow; */
+	color:orange;
+	border:0px; /* solid black;*/
+	padding:0px;
+	margin:5px;
+	visibility:visible;
+}
+
+form#CoilResults {
+	float:left;
+	width:400px;
+	/* background-color:lightyellow; */
+	color:orange;
+	border:0px; /*solid black;*/
+	padding:0px;
+	margin:5px;
+	visibility:visible;
+}
+
+h2	{
+	color:black;
+	/* background-color:lightyellow; */
+}
+
+table, th, td {
+		border:1px solid black;
+		border-collapse:collapse;
+}
