@@ -106,7 +106,7 @@ hr	{
 
 form#CoilForm {
 	float:left;
-	width:436px;
+	width:455px;
 	/* background-color:lightyellow; */
 	color:orange;
 	border:0px; /* solid black;*/
@@ -117,7 +117,7 @@ form#CoilForm {
 
 form#CoilResults {
 	float:left;
-	width:400px;
+	width:420px;
 	/* background-color:lightyellow; */
 	color:orange;
 	border:0px; /*solid black;*/
