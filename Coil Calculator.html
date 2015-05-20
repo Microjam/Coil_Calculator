@@ -115,7 +115,8 @@
 		<div><label for="MaterialType">Material Grade:..</label>
 			<select id="MaterialType" onchange="MaterialChange()" autofocus>
 				<option value="0.283" selected>1008/1010 Steel</option>
-				<option value="0.2839">S270D per TS3106</option>
+				<option value="1.000">Volume (Density = 1.000)</option>
+				<option value="0.2839">SPH270D (TS3106)</option>
 				<option value="0.098">Aluminum</option>
 				<option value="0.283">SAE J2340 HR 340 XF</option>
 				<option value="0.290">Stainless Steel</option>
@@ -188,6 +189,7 @@
 		
 		<fieldset>
 		<legend><h2><em><strong>Wraps</strong></em></h2></legend>
+		<div><label for="CoilWraps">Coil Wraps:...........</label><input type="text" name="CoilWraps" id="CoilWraps" size="15" value="0.00"></div>
 		<div><label for="OuterWrap">Outer Wrap:...........</label><input type="text" name="OuterWrap" id="OuterWrap" size="15" value="0.00"></div>
 		<div><label for="InnerWrap">Inner Wrap:...........</label><input type="text" name="InnerWrap" id="InnerWrap" size="15" value="0.00"></div>
 		<div><label for="Pounds">Pounds Only:..........  </label><input type="text" name="Pounds" id="Pounds" size="15" value="0.00"></div>

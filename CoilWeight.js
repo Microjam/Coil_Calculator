@@ -33,6 +33,8 @@ function coilData() {
 	//var MaterialType = MaterialList.options[MaterialIndex].text;
 	//alert(MaterialType);
 	
+	var CoilWraps;
+	
 	var Coil_Count = parseFloat(document.getElementById('Coil_Count').value);
 	var Coil_OD = parseFloat(document.getElementById('Coil_OD').value);
 	var Coil_ID = parseFloat(document.getElementById('Coil_ID').value);
@@ -52,15 +54,18 @@ function coilData() {
 	
 	/* alert(document.getElementByName("YesNo").value); */
 	
+	CoilWraps = (Coil_OD - Coil_ID)/Thickness;
+	document.getElementById('CoilWraps').value = CoilWraps.toFixed(4);
+	
 	CoilVolume = Coil_Width*Math.PI*(Math.pow(Coil_OD,2)-Math.pow(Coil_ID,2))/4;
 	CoilWeight = CoilVolume*Density;
 	document.getElementById('CoilWeight').value = CoilWeight.toFixed(4);
 	document.getElementById('TotalWeight').value = (Coil_Count*CoilWeight).toFixed(4);
 	
 	BlankWeight = Coil_Width*Progression*Thickness*Density;
-	document.getElementById('BlankWeight').value = BlankWeight.toFixed(4);
+	document.getElementById('BlankWeight').value = BlankWeight.toFixed(6);
 	
-	document.getElementById("PartWeight").value = (BlankWeight/Makes).toFixed(4);
+	document.getElementById("PartWeight").value = (BlankWeight/Makes).toFixed(6);
 
 	StripWeight = StripLength*Coil_Width*Thickness*Density;
 	document.getElementById("StripWeight").value = StripWeight.toFixed(4);
